@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="offers">
+  <head>
+    <title>Offers web scraper </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js'></script>
+  <script src="javascripts/controllers/main.js"></script>
+  <script>
+  </script>
+  </head> 
+  <body>
+  <div ng-controller ="offers" class="row row-centered">  
+    <div style="margin-top: 40px" class="col-md-2">
+    <div class="form-group has-feedback">
+    <input class="form-control" placeholder="Search..." ng-model="searchText">
+    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+    </div>
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" ><a href="http://localhost:3000/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li role="presentation" class="active"><a href="http://localhost:3000/webscraper"><span class="glyphicon glyphicon-book"></span> Reload all offers</a></li>
+    </ul>
+    </div>
+
+    <div class="col-md-10">    
+    <div class="page-header"> 
+    <h1 class="text-center">
+    <strong>Offers web scraper</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </h1> 
+    </div>
+    <div  align="center">
+      <img height="175" width="175" src="https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-512.png" alt="...">
+      <h4>Offers are up to date!</h4>
+      <p><a href="/" class="btn btn-primary" role="button">Home</a>
+    </div>
+  </div>
+  </body>
+
+</html>

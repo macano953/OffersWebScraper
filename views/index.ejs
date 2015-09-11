@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="offers">
+  <head>
+    <title>Offers web scraper </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Latest compiled and minified CSS -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>  
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js'></script>
+  <script src="javascripts/controllers/main.js"></script>
+  <script>
+  </script>
+  </head> 
+  <body>
+  <div ng-controller ="offers" class="row row-centered">  
+    <div style="margin-top: 40px" class="col-md-2">
+    <div class="form-group has-feedback">
+    <input class="form-control" placeholder="Search..." ng-model="searchText">
+    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+    </div>
+    <ul class="nav nav-pills nav-stacked">
+    <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+    <li role="presentation"><a href="http://localhost:3000/webscraper"><span class="glyphicon glyphicon-refresh"></span> Reload all offers</a></li>
+    </ul>
+    </div>
+
+    <div class="col-md-10">    
+    <div class="page-header"> 
+    <h1 class="text-center">
+    <strong>Offers web scraper</strong>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <small id="txt"></small>
+    </h1> 
+    </div>
+    <div><div  class="alert alert-warning"><span class="glyphicon glyphicon-alert"></span>
+    <strong> Please</strong> press <a href="http://localhost:3000/webscraper">here</a> if nothing appears.
+</div>
+      <div style="margin-top: 20px" class="container-fluid">
+          <div class="thumbnail" ng-repeat="offer in offers | filter:searchText | orderBy : 'date':true" width="50px" >
+            <div style="text-align: center">   
+              <h4 style="font-size=large"><strong> {{ offer.Title }}</strong></h4> 
+              <img  style="display: block; margin-left: auto;margin-right: auto"height="200px" widht="200px" style="margin:10px" ng-src="{{ offer.image }}" /> 
+              <div class="caption">
+              <p><strong><span class="glyphicon glyphicon-euro"></span> Price:</strong> {{ offer.Price }}</p>
+              <p><strong>Other prices:</strong> {{ offer.other_prices }}</p>
+              <p><strong>category:</strong> {{ offer.category }}</p>
+              <p><strong>Seller:</strong> {{ offer.Seller }}</p>  
+              <p><strong>Date:</strong> {{ offer.date | date:'medium'}}</p>
+              <p><strong>Availability:</strong> {{ offer.availability }}</p>              
+              <button class="btn btn-md btn-default"><a href="{{ offer.more_info }}" target="_blank">More info</a></button> 
+              <button class="btn btn-md btn-warning"><a href="{{ offer.link }}" target="_blank">Purchase Link</a></button>   
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>
